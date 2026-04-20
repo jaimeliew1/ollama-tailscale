@@ -1,3 +1,10 @@
+cleanup() {
+  echo "Logging out of Tailscale..."
+  tailscale logout || true
+}
+
+# Ensure cleanup runs on script exit or interruption
+trap cleanup EXIT SIGINT SIGTERM
 #!/bin/bash
 set -e
 
