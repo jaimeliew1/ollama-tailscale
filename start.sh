@@ -8,8 +8,8 @@ tailscaled &
 sleep 2
 
 # Authenticate using env var
-tailscale up --authkey=${TAILSCALE_AUTHKEY} \
---accept-routes 
+tailscaled --tun=userspace-networking &
+tailscale up --authkey=${TAILSCALE_AUTHKEY}  --accept-routes 
 
 
 ###############################################################
