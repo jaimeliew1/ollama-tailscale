@@ -9,8 +9,8 @@ sleep 2
 
 # Authenticate using env var
 tailscaled --tun=userspace-networking &
-tailscale up --authkey=${TAILSCALE_AUTHKEY}  --accept-routes 
-
+tailscale up --authkey=${TAILSCALE_AUTHKEY}  --accept-routes --hostname=llm-runpod
+# Note: --hostname fixes the address of this container in the Tailscale network to http://llm-runpod.<your-tailnet>.ts.net
 
 ###############################################################
 # Usage:
